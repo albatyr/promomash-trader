@@ -21,7 +21,7 @@ public class CountriesController(IMediator mediator) : ControllerBase
     [ProducesResponseType(StatusCodes.Status200OK)]
     public async Task<IActionResult> GetAllProvincesByCountry(string countryCode)
     {
-        var query = new GetAllProvincesByCountryQuery { CountryCode = countryCode };
+        var query = new GetAllProvincesByCountryQuery(countryCode);
         var provinces = await mediator.Send(query);
         return Ok(provinces);
     }

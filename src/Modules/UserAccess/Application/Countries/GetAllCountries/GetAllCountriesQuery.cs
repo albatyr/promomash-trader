@@ -2,6 +2,4 @@ using MediatR;
 
 namespace Promomash.Trader.UserAccess.Application.Countries.GetAllCountries;
 
-public class GetAllCountriesQuery : IRequest<List<CountryDto>>
-{
-}
+public sealed record GetAllCountriesQuery : IRequest<List<CountryDto>>;

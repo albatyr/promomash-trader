@@ -8,88 +8,71 @@ namespace Promomash.Trader.Tests.API;
 
 public class UserRegistrationApiTests(ApiTestWebAppFactory factory) : BaseApiTest(factory)
 {
-    private readonly RegisterUserCommand _request = new()
-    {
-        Email = "testuser@example.com",
-        Password = "Password123!",
-        IsAgreedToWorkForFood = true,
-        ProvinceId = "USA:CA"
-    };
+    private readonly RegisterUserCommand _validRequest = new(
+        "testuser@example.com",
+        "Password123!",
+        true,
+        "USA:CA");
 
     [Fact]
     public async Task Post_User_Registration_Returns_Success()
     {
-        _request.Email = $"user_{Guid.NewGuid()}@example.com";
+        var request = _validRequest with { Email = $"user_{Guid.NewGuid()}@example.com" };
 
-        // Act
-        var response = await HttpClient.PostAsJsonAsync("/api/user/registration", _request);
+        var response = await HttpClient.PostAsJsonAsync("/api/user/registration", request);
 
-        // Assert
         response.StatusCode.Should().Be(HttpStatusCode.OK);
     }
 
     [Fact]
     public async Task Post_User_Registration_Returns_Error_If_Email_Is_Invalid()
     {
-        // Arrange
-        _request.Email = "not a valid email";
+        var request = _validRequest with { Email = "not a valid email" };
 
-        // Act
-        var response = await HttpClient.PostAsJsonAsync("/api/user/registration", _request);
+        var response = await HttpClient.PostAsJsonAsync("/api/user/registration", request);
 
-        // Assert
         response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
     }
 
     [Fact]
     public async Task Post_User_Registration_Returns_Error_If_Password_Has_No_Number()
     {
-        // Arrange
-        _request.Password = "1234";
+        var request = _validRequest with { Password = "1234" };
 
-        // Act
-        var response = await HttpClient.PostAsJsonAsync("/api/user/registration", _request);
+        var response = await HttpClient.PostAsJsonAsync("/api/user/registration", request);
 
-        // Assert
         response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
     }
 
     [Fact]
     public async Task Post_User_Registration_Returns_Error_If_Password_Has_No_Letter()
     {
-        // Arrange
-        _request.Password = "asd";
+        var request = _validRequest with { Password = "asd" };
 
-        // Act
-        var response = await HttpClient.PostAsJsonAsync("/api/user/registration", _request);
+        var response = await HttpClient.PostAsJsonAsync("/api/user/registration", request);
 
-        // Assert
         response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
     }
 
     [Fact]
     public async Task Post_User_Registration_Returns_Error_If_ProvinceId_Is_Invalid()
     {
-        // Arrange
-        _request.ProvinceId = "USA---CA";
+        var request = _validRequest with { ProvinceId = "USA---CA" };
 
-        // Act
-        var response = await HttpClient.PostAsJsonAsync("/api/user/registration", _request);
+        var response = await HttpClient.PostAsJsonAsync("/api/user/registration", request);
 
-        // Assert
         response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
     }
 
     [Fact]
     public async Task Post_User_Registration_Returns_Error_If_User_Already_Exists()
     {
-        // Arrange
-        await HttpClient.PostAsJsonAsync("/api/user/registration", _request);
+        var request = _validRequest with { Email = $"user_{Guid.NewGuid()}@example.com" };
 
-        // Act (trying to add same user again)
-        var response = await HttpClient.PostAsJsonAsync("/api/user/registration", _request);
+        await HttpClient.PostAsJsonAsync("/api/user/registration", request);
 
-        // Assert
+        var response = await HttpClient.PostAsJsonAsync("/api/user/registration", request);
+
         response.StatusCode.Should().Be(HttpStatusCode.Conflict);
     }
 }
