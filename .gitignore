@@ -1,0 +1,110 @@
+# User-specific files
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.userprefs
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+*.swo
+*.swp
+*.vimrc
+.nvimrc
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+*.ilk
+*.meta
+*.obj
+*.pch
+*.pdb
+*.pgc
+*.pgd
+*.rsp
+*.sbr
+*.tlb
+*.tli
+*.tlh
+*.tmp
+*.tmp_proj
+*.log
+*.pidb
+*.svclog
+*.scc
+*.cache
+*.cache/
+
+# Visual Studio
+.vs/
+.vspscc
+.vssscc
+
+# NuGet Packages
+*.nupkg
+**/packages/*
+!**/packages/build/
+*.nuget.props
+*.nuget.targets
+
+# Tye
+.tye/
+
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Angular
+.angular/
+dist/
+tmp/
+*.log
+
+# Visual Studio Code
+.vscode/launch.json
+.vscode/settings.json
+.vscode/tasks.json
+
+# Nuke working directory
+.nuke-working-directory/
+
+# Docker
+.eshopdocker_*
+.docker/
+
+# SQL Server
+*.mdf
+*.ldf
+
+# Miscellaneous
+*.dbmdl
+*.dbproj.schemaview
+*.jfm
+*.publishsettings
+*.swo
+*.swp
+**/.kube/
+.history
+*.secret.js
+*.dotCover
+*.dotsettings
+
+# ReSharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+
+# Temporary directories
+tmp/
+logs/
+*.log
