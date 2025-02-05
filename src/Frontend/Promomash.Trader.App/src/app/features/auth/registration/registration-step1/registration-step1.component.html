@@ -1,0 +1,26 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <input matInput placeholder="Email" formControlName="email">
+    <mat-error *ngIf="form.get('email')?.hasError('required')">Email is required</mat-error>
+    <mat-error *ngIf="form.get('email')?.hasError('email')">Invalid email format</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput type="password" placeholder="Password" formControlName="password">
+    <mat-error *ngIf="form.get('password')?.hasError('required')">Password is required</mat-error>
+    <mat-error *ngIf="form.get('password')?.hasError('invalidPassword')">
+      Password must contain at least 1 letter and 1 number
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput type="password" placeholder="Confirm Password" formControlName="confirmPassword">
+    <mat-error *ngIf="form.get('confirmPassword')?.hasError('required')">Confirm Password is required</mat-error>
+    <mat-error *ngIf="form.get('confirmPassword')?.hasError('mismatch')">Passwords do not match</mat-error>
+  </mat-form-field>
+
+  <mat-checkbox formControlName="agreeTerms">I agree to work for food</mat-checkbox>
+  <mat-error *ngIf="form.get('agreeTerms')?.hasError('required')">You must agree to work for food</mat-error>
+
+  <button mat-raised-button matStepperNext color="primary">Next</button>
+</form>

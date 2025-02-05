@@ -1,0 +1,10 @@
+### Register a new user
+POST {{baseUrl}}/api/user/registration
+Content-Type: application/json
+
+{
+  "Email": "johndoe@example.com",
+  "Password": "password",
+  "IsAgreedToWorkForFood": true,
+  "ProvinceId": "CAN:ON"
+}

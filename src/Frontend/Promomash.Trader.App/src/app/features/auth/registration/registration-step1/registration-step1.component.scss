@@ -1,0 +1,19 @@
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+.mat-checkbox {
+  margin-top: 20px;
+}
+
+button {
+  align-self: flex-end;
+  margin-top: 20px;
+}

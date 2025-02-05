@@ -1,0 +1,95 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35521.163
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Promomash.Trader.AppHost", "Aspire\Promomash.Trader.AppHost\Promomash.Trader.AppHost.csproj", "{E0573A9A-3F28-45E7-89E2-437A6D9E948E}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "Promomash.Trader.App", "Frontend\Promomash.Trader.App\Promomash.Trader.App.esproj", "{AFDE03A6-285E-4957-8F96-0F8C21E6A242}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Aspire", "Aspire", "{4CCC3B28-9944-4AD9-8D5D-FC265577B269}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{1998EAF3-6603-4FBB-AC4F-8512D19B46E1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{C0DEDCEC-2CA7-4AD2-A876-2BD6F81E21E4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{1228B20D-04FC-4AE0-A7E5-B4A91F1D2FA5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Promomash.Trader.API", "API\Promomash.Trader.API\Promomash.Trader.API.csproj", "{10A686F3-A461-43D0-9CE3-C2D7A482CF23}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Promomash.Trader.ServiceDefaults", "API\Promomash.Trader.ServiceDefaults\Promomash.Trader.ServiceDefaults.csproj", "{C07094C6-7511-4EFD-8FC9-41A4DD7D4170}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{AA4F3705-8137-4072-A8C5-98986A056D37}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UserAccess", "UserAccess", "{28D7BA1A-5A2A-430D-902A-AE9952C65453}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Promomash.Trader.UserAccess.Application", "Modules\UserAccess\Application\Promomash.Trader.UserAccess.Application.csproj", "{2AF75F43-36E6-4715-88DA-28BB8FDA960E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Promomash.Trader.UserAccess.Domain", "Modules\UserAccess\Domain\Promomash.Trader.UserAccess.Domain.csproj", "{4C989909-46A1-430C-A80B-73BAA3CC6C89}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Promomash.Trader.UserAccess.Infrastructure", "Modules\UserAccess\Infrastructure\Promomash.Trader.UserAccess.Infrastructure.csproj", "{EAD7F0B4-12A5-413C-96AD-E172D4963578}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RequestExamples", "RequestExamples", "{DD36D9F7-5080-4F28-8EB2-8194339D047D}"
+	ProjectSection(SolutionItems) = preProject
+		API\RequestExamples\http-client.env.json = API\RequestExamples\http-client.env.json
+		API\RequestExamples\Users.http = API\RequestExamples\Users.http
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Promomash.Trader.Tests", "Tests\Promomash.Trader.Tests\Promomash.Trader.Tests.csproj", "{17633CAC-C0B2-4B90-BD0F-950398E96CC9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E0573A9A-3F28-45E7-89E2-437A6D9E948E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0573A9A-3F28-45E7-89E2-437A6D9E948E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0573A9A-3F28-45E7-89E2-437A6D9E948E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0573A9A-3F28-45E7-89E2-437A6D9E948E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFDE03A6-285E-4957-8F96-0F8C21E6A242}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFDE03A6-285E-4957-8F96-0F8C21E6A242}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFDE03A6-285E-4957-8F96-0F8C21E6A242}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{AFDE03A6-285E-4957-8F96-0F8C21E6A242}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFDE03A6-285E-4957-8F96-0F8C21E6A242}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFDE03A6-285E-4957-8F96-0F8C21E6A242}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{10A686F3-A461-43D0-9CE3-C2D7A482CF23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10A686F3-A461-43D0-9CE3-C2D7A482CF23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10A686F3-A461-43D0-9CE3-C2D7A482CF23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10A686F3-A461-43D0-9CE3-C2D7A482CF23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C07094C6-7511-4EFD-8FC9-41A4DD7D4170}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C07094C6-7511-4EFD-8FC9-41A4DD7D4170}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C07094C6-7511-4EFD-8FC9-41A4DD7D4170}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C07094C6-7511-4EFD-8FC9-41A4DD7D4170}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AF75F43-36E6-4715-88DA-28BB8FDA960E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AF75F43-36E6-4715-88DA-28BB8FDA960E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AF75F43-36E6-4715-88DA-28BB8FDA960E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AF75F43-36E6-4715-88DA-28BB8FDA960E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C989909-46A1-430C-A80B-73BAA3CC6C89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C989909-46A1-430C-A80B-73BAA3CC6C89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C989909-46A1-430C-A80B-73BAA3CC6C89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C989909-46A1-430C-A80B-73BAA3CC6C89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAD7F0B4-12A5-413C-96AD-E172D4963578}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAD7F0B4-12A5-413C-96AD-E172D4963578}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAD7F0B4-12A5-413C-96AD-E172D4963578}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAD7F0B4-12A5-413C-96AD-E172D4963578}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17633CAC-C0B2-4B90-BD0F-950398E96CC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17633CAC-C0B2-4B90-BD0F-950398E96CC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17633CAC-C0B2-4B90-BD0F-950398E96CC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17633CAC-C0B2-4B90-BD0F-950398E96CC9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E0573A9A-3F28-45E7-89E2-437A6D9E948E} = {4CCC3B28-9944-4AD9-8D5D-FC265577B269}
+		{AFDE03A6-285E-4957-8F96-0F8C21E6A242} = {1228B20D-04FC-4AE0-A7E5-B4A91F1D2FA5}
+		{10A686F3-A461-43D0-9CE3-C2D7A482CF23} = {1998EAF3-6603-4FBB-AC4F-8512D19B46E1}
+		{C07094C6-7511-4EFD-8FC9-41A4DD7D4170} = {1998EAF3-6603-4FBB-AC4F-8512D19B46E1}
+		{28D7BA1A-5A2A-430D-902A-AE9952C65453} = {AA4F3705-8137-4072-A8C5-98986A056D37}
+		{2AF75F43-36E6-4715-88DA-28BB8FDA960E} = {28D7BA1A-5A2A-430D-902A-AE9952C65453}
+		{4C989909-46A1-430C-A80B-73BAA3CC6C89} = {28D7BA1A-5A2A-430D-902A-AE9952C65453}
+		{EAD7F0B4-12A5-413C-96AD-E172D4963578} = {28D7BA1A-5A2A-430D-902A-AE9952C65453}
+		{DD36D9F7-5080-4F28-8EB2-8194339D047D} = {1998EAF3-6603-4FBB-AC4F-8512D19B46E1}
+		{17633CAC-C0B2-4B90-BD0F-950398E96CC9} = {C0DEDCEC-2CA7-4AD2-A876-2BD6F81E21E4}
+	EndGlobalSection
+EndGlobal

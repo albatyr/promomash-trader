@@ -1,0 +1,23 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <mat-label>Country</mat-label>
+    <mat-select formControlName="country" (selectionChange)="loadProvinces($event.value)">
+      <mat-option *ngFor="let country of countries" [value]="country.code">
+        {{ country.name }}
+      </mat-option>
+    </mat-select>
+    <mat-error>Country is required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Province</mat-label>
+    <mat-select formControlName="province">
+      <mat-option *ngFor="let province of provinces" [value]="province.id">
+        {{ province.name }}
+      </mat-option>
+    </mat-select>
+    <mat-error>Province is required</mat-error>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">Save</button>
+</form>
