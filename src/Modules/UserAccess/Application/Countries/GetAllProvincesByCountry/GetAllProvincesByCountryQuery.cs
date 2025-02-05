@@ -4,5 +4,5 @@ namespace Promomash.Trader.UserAccess.Application.Countries.GetAllProvincesByCou
 
 public class GetAllProvincesByCountryQuery : IRequest<List<ProvinceDto>>
 {
-    public string CountryCode { get; set; }
+    public string CountryCode { get; set; } = string.Empty;
 }

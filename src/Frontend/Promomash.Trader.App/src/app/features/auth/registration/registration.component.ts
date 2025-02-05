@@ -23,6 +23,7 @@ export class RegistrationComponent {
   step1Form: any;
   step2Form: any;
   countries: any[] = [];
+  isSubmitting = false;
 
   constructor(
     private countriesService: CountriesService,
@@ -30,8 +31,6 @@ export class RegistrationComponent {
     private snackBar: MatSnackBar) {
     this.countriesService.getCountries().subscribe(countries => this.countries = countries);
   }
-
-  isSubmitting = false;
 
   onSave() {
     if (this.isSubmitting) return;

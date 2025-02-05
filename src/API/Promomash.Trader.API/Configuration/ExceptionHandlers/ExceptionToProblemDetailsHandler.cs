@@ -7,7 +7,10 @@ namespace Promomash.Trader.API.Configuration.ExceptionHandlers;
 public class ExceptionToProblemDetailsHandler(IProblemDetailsService problemDetailsService)
     : IExceptionHandler
 {
-    public async ValueTask<bool> TryHandleAsync(HttpContext httpContext, Exception exception, CancellationToken cancellationToken)
+    public async ValueTask<bool> TryHandleAsync(
+        HttpContext httpContext,
+        Exception exception,
+        CancellationToken cancellationToken)
     {
         var error = new ProblemDetailsContext
         {
@@ -16,11 +19,11 @@ public class ExceptionToProblemDetailsHandler(IProblemDetailsService problemDeta
             {
                 Title = "An error occurred",
                 Detail = exception.Message,
-                Type = exception.GetType().Name,
+                Type = exception.GetType().Name
             },
             Exception = exception
         };
-        
+
         switch (exception)
         {
             case InvalidCommandException validationException:
@@ -34,8 +37,7 @@ public class ExceptionToProblemDetailsHandler(IProblemDetailsService problemDeta
                 error.ProblemDetails.Detail = businessRuleValidationException.Details;
                 break;
         }
-        
+
         return await problemDetailsService.TryWriteAsync(error);
-        
     }
 }

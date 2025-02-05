@@ -1,12 +1,12 @@
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
+<form (ngSubmit)="onSubmit()" [formGroup]="form">
   <mat-form-field>
-    <input matInput placeholder="Email" formControlName="email">
+    <input formControlName="email" matInput placeholder="Email">
     <mat-error *ngIf="form.get('email')?.hasError('required')">Email is required</mat-error>
     <mat-error *ngIf="form.get('email')?.hasError('email')">Invalid email format</mat-error>
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput type="password" placeholder="Password" formControlName="password">
+    <input formControlName="password" matInput placeholder="Password" type="password">
     <mat-error *ngIf="form.get('password')?.hasError('required')">Password is required</mat-error>
     <mat-error *ngIf="form.get('password')?.hasError('invalidPassword')">
       Password must contain at least 1 letter and 1 number
@@ -14,7 +14,7 @@
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput type="password" placeholder="Confirm Password" formControlName="confirmPassword">
+    <input formControlName="confirmPassword" matInput placeholder="Confirm Password" type="password">
     <mat-error *ngIf="form.get('confirmPassword')?.hasError('required')">Confirm Password is required</mat-error>
     <mat-error *ngIf="form.get('confirmPassword')?.hasError('mismatch')">Passwords do not match</mat-error>
   </mat-form-field>
@@ -22,5 +22,5 @@
   <mat-checkbox formControlName="agreeTerms">I agree to work for food</mat-checkbox>
   <mat-error *ngIf="form.get('agreeTerms')?.hasError('required')">You must agree to work for food</mat-error>
 
-  <button mat-raised-button matStepperNext color="primary">Next</button>
+  <button color="primary" mat-raised-button matStepperNext>Next</button>
 </form>

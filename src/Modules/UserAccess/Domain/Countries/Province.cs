@@ -15,9 +15,11 @@ public class Province : Entity
         Name = name;
         CountryCode = countryCode;
     }
-    
+
     public ProvinceId Id { get; private set; }
+
     public string Name { get; private set; }
+
     public string CountryCode { get; private set; }
 
     public static Province Create(string code, string name, string countryCode)

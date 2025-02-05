@@ -10,7 +10,7 @@ public class UsersCounter(NpgsqlDataSource dataSource)
     public int CountUsersWithEmail(string email)
     {
         using var connection = dataSource.OpenConnection();
-        
+
         const string sql = """
                            SELECT COUNT(*) 
                            FROM "users"."Users"

@@ -1,5 +1,7 @@
 <div class="form-container">
-  <mat-stepper linear #stepper>
+  <h2 class="form-title">Register account</h2>
+
+  <mat-stepper #stepper linear>
     <mat-step [stepControl]="step1Form">
       <ng-template matStepLabel>Fill account details</ng-template>
       <app-registration-step1 (next)="step1Form = $event; onNext(stepper)"></app-registration-step1>
@@ -8,8 +10,8 @@
     <mat-step [stepControl]="step2Form">
       <ng-template matStepLabel>Fill location</ng-template>
       <app-registration-step2
-        [countries]="countries"
-        (save)="step2Form = $event; onSave()">
+        (save)="step2Form = $event; onSave()"
+        [countries]="countries">
       </app-registration-step2>
     </mat-step>
   </mat-stepper>

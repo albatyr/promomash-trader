@@ -6,13 +6,6 @@ namespace Promomash.Trader.UserAccess.Domain.Users;
 
 public class User : Entity, IAggregateRoot
 {
-    public UserId Id { get; }
-    public string Login { get; private set; }
-    public string Email { get; private set; }
-    public string Password { get; private set; }
-    public bool IsAgreedToWorkForFood { get; private set; }
-    public ProvinceId ProvinceId { get; private set; }
-
     private User()
     {
         // Only for EF.
@@ -26,15 +19,27 @@ public class User : Entity, IAggregateRoot
         IUsersCounter usersCounter)
     {
         CheckRule(new UserEmailMustBeUniqueRule(usersCounter, email));
-        
+
         Id = new UserId(Guid.NewGuid());
-        
+
         Login = email;
         Email = email;
         Password = password;
         IsAgreedToWorkForFood = isAgreedToWorkForFood;
         ProvinceId = provinceId;
     }
+
+    public UserId Id { get; }
+
+    public string Login { get; private set; }
+
+    public string Email { get; private set; }
+
+    public string Password { get; private set; }
+
+    public bool IsAgreedToWorkForFood { get; private set; }
+
+    public ProvinceId ProvinceId { get; private set; }
 
     public static User CreateUser(
         string email,

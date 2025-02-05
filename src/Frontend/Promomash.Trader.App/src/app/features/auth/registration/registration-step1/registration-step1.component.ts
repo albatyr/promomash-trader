@@ -1,9 +1,9 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule, FormBuilder, Validators, FormGroup } from '@angular/forms';
-import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCheckboxModule } from '@angular/material/checkbox';
+import {Component, EventEmitter, Output} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @Component({
   standalone: true,
@@ -16,7 +16,8 @@ export class RegistrationStep1Component {
   @Output() next = new EventEmitter();
   form!: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder) {
+  }
 
   ngOnInit() {
     this.form = this.fb.group({
@@ -24,14 +25,14 @@ export class RegistrationStep1Component {
       password: ['', [Validators.required, this.passwordValidator]],
       confirmPassword: ['', Validators.required],
       agreeTerms: [false, Validators.requiredTrue]
-    }, { validators: this.matchPasswordValidator });
+    }, {validators: this.matchPasswordValidator});
   }
 
   passwordValidator(control: any) {
     const hasLetter = /[a-zA-Z]/.test(control.value);
     const hasNumber = /\d/.test(control.value);
 
-    return hasLetter && hasNumber ? null : { invalidPassword: true };
+    return hasLetter && hasNumber ? null : {invalidPassword: true};
   }
 
   matchPasswordValidator(group: any) {
@@ -43,11 +44,11 @@ export class RegistrationStep1Component {
     }
 
     if (password.value !== confirmPassword.value) {
-      confirmPassword.setErrors({ ...confirmPassword.errors, mismatch: true });
-      return { mismatch: true };
+      confirmPassword.setErrors({...confirmPassword.errors, mismatch: true});
+      return {mismatch: true};
     } else {
       if (confirmPassword.errors) {
-        const { mismatch, ...otherErrors } = confirmPassword.errors;
+        const {mismatch, ...otherErrors} = confirmPassword.errors;
         confirmPassword.setErrors(Object.keys(otherErrors).length > 0 ? otherErrors : null);
       }
       return null;

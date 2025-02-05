@@ -5,8 +5,12 @@ namespace Promomash.Trader.UserAccess.Infrastructure.Configuration.PipelineBehav
 
 internal class LoggingBehavior<TRequest, TResponse>(ILogger<LoggingBehavior<TRequest, TResponse>> logger)
     : IPipelineBehavior<TRequest, TResponse>
+    where TRequest : notnull
 {
-    public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
+    public async Task<TResponse> Handle(
+        TRequest request,
+        RequestHandlerDelegate<TResponse> next,
+        CancellationToken cancellationToken)
     {
         using (BeginCommandLoggingScope(request))
         {
@@ -27,12 +31,13 @@ internal class LoggingBehavior<TRequest, TResponse>(ILogger<LoggingBehavior<TReq
             }
         }
     }
-    
-    private IDisposable? BeginCommandLoggingScope(TRequest request)
+
+    private IDisposable BeginCommandLoggingScope(TRequest request)
     {
-        return logger.BeginScope(new Dictionary<string, object>
-        {
-            { "RequestType", request.GetType().Name }
-        });
+        return logger.BeginScope(
+            new Dictionary<string, object>
+            {
+                { "RequestType", request.GetType().Name }
+            });
     }
 }

@@ -14,8 +14,9 @@ public class Country : Entity
         Code = code;
         Name = name;
     }
-    
+
     public string Code { get; private set; }
+
     public string Name { get; private set; }
 
     public static Country Create(string code, string name)

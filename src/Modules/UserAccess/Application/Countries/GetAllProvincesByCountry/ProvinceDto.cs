@@ -2,6 +2,7 @@ namespace Promomash.Trader.UserAccess.Application.Countries.GetAllProvincesByCou
 
 public class ProvinceDto
 {
-    public string Id { get; set; }
-    public string Name { get; set; }
+    public string Id { get; init; }
+
+    public string Name { get; init; }
 }

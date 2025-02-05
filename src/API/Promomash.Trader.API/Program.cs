@@ -8,24 +8,26 @@ using Scalar.AspNetCore;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.AddNpgsqlDataSource("traderDb");
-builder.AddNpgsqlDbContext<UserAccessContext>(connectionName: "traderDb");
+builder.AddNpgsqlDbContext<UserAccessContext>("traderDb");
 
 // Add service defaults & Aspire client integrations.
 builder.AddServiceDefaults();
 
 // Add services to the container.
 builder.Services
-    .AddProblemDetails(options =>
-        options.CustomizeProblemDetails = ctx =>
-        {
-            ctx.ProblemDetails.Extensions.Add("trace-id", ctx.HttpContext.TraceIdentifier);
-            ctx.ProblemDetails.Extensions.Add("instance", $"{ctx.HttpContext.Request.Method} {ctx.HttpContext.Request.Path}");
-        });
+    .AddProblemDetails(
+        options =>
+            options.CustomizeProblemDetails = ctx =>
+            {
+                ctx.ProblemDetails.Extensions.Add("trace-id", ctx.HttpContext.TraceIdentifier);
+                ctx.ProblemDetails.Extensions.Add(
+                    "instance",
+                    $"{ctx.HttpContext.Request.Method} {ctx.HttpContext.Request.Path}");
+            });
 
 builder.Services.AddExceptionHandler<ExceptionToProblemDetailsHandler>();
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
-builder.Services.AddSwaggerGen();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddHostedService<DatabaseInitializationBackgroundService>();
 

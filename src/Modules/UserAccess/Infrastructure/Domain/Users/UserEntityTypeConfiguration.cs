@@ -21,7 +21,7 @@ internal class UserEntityTypeConfiguration : IEntityTypeConfiguration<User>
         builder.Property(u => u.Email).IsRequired().HasMaxLength(100);
         builder.Property(u => u.Password).IsRequired().HasMaxLength(100);
         builder.Property(u => u.IsAgreedToWorkForFood).IsRequired();
-        
+
         builder.Property(e => e.ProvinceId)
             .HasConversion(
                 v => v.ToString(),
