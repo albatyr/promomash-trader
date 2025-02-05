@@ -3,6 +3,7 @@ using Promomash.Trader.API.Configuration.HostedServices;
 using Promomash.Trader.ServiceDefaults;
 using Promomash.Trader.UserAccess.Infrastructure;
 using Promomash.Trader.UserAccess.Infrastructure.Configuration.DependencyInjection;
+using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -39,8 +40,7 @@ app.UseExceptionHandler();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    app.MapScalarApiReference();
 }
 
 app.UseCors(p => p.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());

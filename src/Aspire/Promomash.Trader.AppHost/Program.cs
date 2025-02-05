@@ -1,3 +1,5 @@
+using Promomash.Trader.AppHost;
+
 var builder = DistributedApplication.CreateBuilder(args);
 
 var postgres = builder.AddPostgres("postgres").WithPgAdmin().WithDataVolume();
@@ -6,6 +8,7 @@ var traderDb = postgres.AddDatabase("traderDb", databaseName: "traderDb");
 var api = builder
     .AddProject<Projects.Promomash_Trader_API>("api")
     .WithExternalHttpEndpoints()
+    .WithScalar()
     .WithReference(traderDb)
     .WaitFor(postgres);
 

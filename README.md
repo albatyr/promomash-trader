@@ -1,6 +1,8 @@
-# Promomash Trader Project
+# Promomash Trader
 
-This project is part of the **Promomash Trader** platform. It is built using a **Modular Monolith** architecture, with a combination of backend services, frontend app, and testing suite.
+This project is a sample project that implements simple user registration wizard. It is built using a **Modular Monolith** architecture, with a combination of backend services, frontend app, and testing suite.
+
+The name 'Trader' is used for illustrative purposes only and does not represent the actual name of the application or product.
 
 ## Project Structure
 
@@ -50,7 +52,9 @@ dotnet run
 
 Aspire will build the application, run the API, and start the necessary services, including PostgreSQL.
 
-The Aspire dashboard will be available at `https://localhost:17241/`.
+The Aspire dashboard will be available at `https://localhost:17241`.
+
+There is also Scalar API documentation will be available at `http://localhost:5197/scalar/v1`
 
 ### Step 3: Set Up Frontend Application
 
