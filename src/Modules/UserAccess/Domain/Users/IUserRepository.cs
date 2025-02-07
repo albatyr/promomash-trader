@@ -3,4 +3,6 @@
 public interface IUserRepository
 {
     Task AddAsync(User user);
+
+    Task<bool> IsEmailUniqueAsync(string email);
 }

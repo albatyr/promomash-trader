@@ -13,7 +13,6 @@ public static class ServiceCollectionExtensions
         services.AddValidators();
         services.AddRepositories();
         services.AddMediator();
-        services.AddDomainServices();
 
         return services;
     }
@@ -42,10 +41,5 @@ public static class ServiceCollectionExtensions
     private static void AddValidators(this IServiceCollection services)
     {
         services.AddValidatorsFromAssemblyContaining<RegisterUserCommandValidator>();
-    }
-
-    private static void AddDomainServices(this IServiceCollection services)
-    {
-        services.AddScoped<IUsersCounter, UsersCounter>();
     }
 }

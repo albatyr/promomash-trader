@@ -1,14 +1,17 @@
 ﻿using FluentValidation;
+using Promomash.Trader.UserAccess.Domain.Users;
 
 namespace Promomash.Trader.UserAccess.Application.Users.RegisterUser;
 
 public class RegisterUserCommandValidator : AbstractValidator<RegisterUserCommand>
 {
-    public RegisterUserCommandValidator()
+    public RegisterUserCommandValidator(IUserRepository userRepository)
     {
         RuleFor(x => x.Email)
             .NotEmpty()
-            .EmailAddress();
+            .EmailAddress()
+            .MustAsync(async (email, _) => await userRepository.IsEmailUniqueAsync(email))
+            .WithMessage("The user with same email already exists.");
 
         RuleFor(x => x.Password)
             .NotEmpty()

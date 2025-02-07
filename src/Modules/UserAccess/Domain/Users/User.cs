@@ -1,6 +1,5 @@
 using Promomash.Trader.UserAccess.Domain.BuildingBlocks;
 using Promomash.Trader.UserAccess.Domain.Countries;
-using Promomash.Trader.UserAccess.Domain.Users.Rules;
 
 namespace Promomash.Trader.UserAccess.Domain.Users;
 
@@ -15,11 +14,8 @@ public class User : Entity, IAggregateRoot
         string email,
         string password,
         bool isAgreedToWorkForFood,
-        ProvinceId provinceId,
-        IUsersCounter usersCounter)
+        ProvinceId provinceId)
     {
-        CheckRule(new UserEmailMustBeUniqueRule(usersCounter, email));
-
         Id = new UserId(Guid.NewGuid());
 
         Login = email;
@@ -45,14 +41,12 @@ public class User : Entity, IAggregateRoot
         string email,
         string password,
         bool isAgreedToWorkForFood,
-        ProvinceId provinceId,
-        IUsersCounter usersCounter)
+        ProvinceId provinceId)
     {
         return new User(
             email,
             password,
             isAgreedToWorkForFood,
-            provinceId,
-            usersCounter);
+            provinceId);
     }
 }

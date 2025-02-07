@@ -4,7 +4,7 @@ using Promomash.Trader.UserAccess.Domain.Users;
 
 namespace Promomash.Trader.UserAccess.Application.Users.RegisterUser;
 
-public class RegisterUserCommandHandler(IUserRepository userRepository, IUsersCounter usersCounter)
+public class RegisterUserCommandHandler(IUserRepository userRepository)
     : IRequestHandler<RegisterUserCommand, Guid>
 {
     public async Task<Guid> Handle(RegisterUserCommand request, CancellationToken cancellationToken)
@@ -15,8 +15,7 @@ public class RegisterUserCommandHandler(IUserRepository userRepository, IUsersCo
             request.Email,
             password,
             request.IsAgreedToWorkForFood,
-            ProvinceId.FromString(request.ProvinceId),
-            usersCounter);
+            ProvinceId.FromString(request.ProvinceId));
 
         await userRepository.AddAsync(user);
 

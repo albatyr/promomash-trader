@@ -73,6 +73,6 @@ public class UserRegistrationApiTests(ApiTestWebAppFactory factory) : BaseApiTes
 
         var response = await HttpClient.PostAsJsonAsync("/api/user/registration", request);
 
-        response.StatusCode.Should().Be(HttpStatusCode.Conflict);
+        response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
     }
 }
