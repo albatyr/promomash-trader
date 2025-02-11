@@ -4,7 +4,7 @@ import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSelectModule} from '@angular/material/select';
-import {CountriesService} from '../../../../core/services/countries.service';
+import {CountriesService, ProvinceDto} from '../../../../core/services/countries.service';
 
 @Component({
   standalone: true,
@@ -16,7 +16,7 @@ import {CountriesService} from '../../../../core/services/countries.service';
 export class RegistrationStep2Component {
   @Input() countries: any[] = [];
   @Output() save = new EventEmitter();
-  provinces: any[] = [];
+  provinces: ProvinceDto[] = [];
   form!: FormGroup;
 
   constructor(

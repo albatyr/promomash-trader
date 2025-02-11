@@ -1,6 +1,17 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {environment} from '../../../environments/environment';
+import { Observable } from 'rxjs';
+
+export interface CountryDto {
+  code: string,
+  name: string
+}
+
+export interface ProvinceDto {
+  id: string,
+  name: string
+}
 
 @Injectable({providedIn: 'root'})
 export class CountriesService {
@@ -9,11 +20,11 @@ export class CountriesService {
   constructor(private http: HttpClient) {
   }
 
-  getCountries() {
-    return this.http.get<any[]>(`${this.baseUrl}/api/cuntries`);
+  getCountries(): Observable<CountryDto[]> {
+    return this.http.get<CountryDto[]>(`${this.baseUrl}/api/cuntries`);
   }
 
-  getProvinces(countryCode: string) {
-    return this.http.get<any[]>(`${this.baseUrl}/api/cuntries/${countryCode}/provinces`);
+  getProvinces(countryCode: string): Observable<ProvinceDto[]> {
+    return this.http.get<ProvinceDto[]>(`${this.baseUrl}/api/cuntries/${countryCode}/provinces`);
   }
 }

@@ -7,7 +7,7 @@ namespace Promomash.Trader.API.Controllers;
 
 [ApiController]
 [Route("api/user/registration")]
-public class UserRegistraionController(IMediator mediator) : ControllerBase
+public class UserRegistrationController(IMediator mediator) : ControllerBase
 {
     [AllowAnonymous]
     [HttpPost("")]
@@ -16,6 +16,6 @@ public class UserRegistraionController(IMediator mediator) : ControllerBase
     {
         await mediator.Send(request);
 
-        return Ok();
+        return Created();
     }
 }

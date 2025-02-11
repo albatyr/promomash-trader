@@ -21,7 +21,7 @@ public class UserRegistrationApiTests(ApiTestWebAppFactory factory) : BaseApiTes
 
         var response = await HttpClient.PostAsJsonAsync("/api/user/registration", request);
 
-        response.StatusCode.Should().Be(HttpStatusCode.OK);
+        response.StatusCode.Should().Be(HttpStatusCode.Created);
     }
 
     [Fact]

@@ -158,11 +158,11 @@ namespace Promomash.Trader.UserAccess.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("b1e9f865-c0b1-4c3d-9fbc-080c5c67af9a"),
+                            Id = new Guid("018f9b8e-95e2-7a40-b43a-7057c1c5d4e0"),
                             Email = "admin@example.com",
                             IsAgreedToWorkForFood = true,
                             Login = "admin@example.com",
-                            Password = "adminpass",
+                            Password = "AGYjn9TRYyKoR8TlVqo6jdD64ObqSYwIqLsXXA4iOAukGYSl3Zizeqatrsq+pdqHLQ==",
                             ProvinceId = "USA:CA"
                         });
                 });

@@ -3,7 +3,7 @@ import {MatStepper, MatStepperModule} from '@angular/material/stepper';
 import {RegistrationStep1Component} from './registration-step1/registration-step1.component';
 import {RegistrationStep2Component} from './registration-step2/registration-step2.component';
 import {ReactiveFormsModule} from '@angular/forms';
-import {CountriesService} from '../../../core/services/countries.service';
+import {CountriesService, CountryDto} from '../../../core/services/countries.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {UserService} from '../../../core/services/user.service';
 
@@ -22,7 +22,7 @@ import {UserService} from '../../../core/services/user.service';
 export class RegistrationComponent {
   step1Form: any;
   step2Form: any;
-  countries: any[] = [];
+  countries: CountryDto[] = [];
   isSubmitting = false;
 
   constructor(

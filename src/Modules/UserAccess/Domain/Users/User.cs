@@ -16,7 +16,7 @@ public class User : Entity, IAggregateRoot
         bool isAgreedToWorkForFood,
         ProvinceId provinceId)
     {
-        Id = new UserId(Guid.NewGuid());
+        Id = new UserId(Guid.CreateVersion7());
 
         Login = email;
         Email = email;
